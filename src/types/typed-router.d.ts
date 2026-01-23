@@ -119,6 +119,27 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/decrypt/history/': RouteRecordInfo<
+      '/decrypt/history/',
+      '/decrypt/history',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/decrypt/status/': RouteRecordInfo<
+      '/decrypt/status/',
+      '/decrypt/status',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/decrypt/upload/': RouteRecordInfo<
+      '/decrypt/upload/',
+      '/decrypt/upload',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/errors': RouteRecordInfo<
       '/errors',
       '/errors',
@@ -243,6 +264,20 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/treehole/message/': RouteRecordInfo<
+      '/treehole/message/',
+      '/treehole/message',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/treehole/tag/': RouteRecordInfo<
+      '/treehole/tag/',
+      '/treehole/tag',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/users/': RouteRecordInfo<
       '/users/',
       '/users',
@@ -344,6 +379,24 @@ declare module 'vue-router/auto-routes' {
     'src/pages/dashboard/index.vue': {
       routes:
         | '/dashboard/'
+      views:
+        | never
+    }
+    'src/pages/decrypt/history/index.vue': {
+      routes:
+        | '/decrypt/history/'
+      views:
+        | never
+    }
+    'src/pages/decrypt/status/index.vue': {
+      routes:
+        | '/decrypt/status/'
+      views:
+        | never
+    }
+    'src/pages/decrypt/upload/index.vue': {
+      routes:
+        | '/decrypt/upload/'
       views:
         | never
     }
@@ -452,6 +505,18 @@ declare module 'vue-router/auto-routes' {
     'src/pages/tasks/index.vue': {
       routes:
         | '/tasks/'
+      views:
+        | never
+    }
+    'src/pages/treehole/message/index.vue': {
+      routes:
+        | '/treehole/message/'
+      views:
+        | never
+    }
+    'src/pages/treehole/tag/index.vue': {
+      routes:
+        | '/treehole/tag/'
       views:
         | never
     }

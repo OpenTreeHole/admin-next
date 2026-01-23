@@ -2,15 +2,21 @@ import type { AxiosError } from 'axios'
 
 import axios from 'axios'
 
+import { useAuthStore } from '@/stores/auth'
 import env from '@/utils/env'
 
-export function useAxios() {
+export function useAxios(type: 'auth' | 'treehole' = 'auth') {
+  const authStore = useAuthStore()
   const axiosInstance = axios.create({
-    baseURL: env.VITE_SERVER_API_URL + env.VITE_SERVER_API_PREFIX,
+    baseURL: type === 'auth' ? env.VITE_AUTH_API_URL : env.VITE_TREEHOLE_API_URL,
     timeout: env.VITE_SERVER_API_TIMEOUT,
   })
 
   axiosInstance.interceptors.request.use((config) => {
+    const token = authStore.accessToken
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
     return config
   }, (error) => {
     return Promise.reject(error)

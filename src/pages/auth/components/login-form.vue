@@ -1,65 +1,59 @@
 <script lang="ts" setup>
 import { useAuth } from '@/composables/use-auth'
 
-import GitHubButton from './github-button.vue'
-import GoogleButton from './google-button.vue'
 import PrivacyPolicyButton from './privacy-policy-button.vue'
 import TermsOfServiceButton from './terms-of-service-button.vue'
 import ToForgotPasswordLink from './to-forgot-password-link.vue'
 
 const { login, loading } = useAuth()
+
+const email = ref('')
+const password = ref('')
 </script>
 
 <template>
   <UiCard class="w-full max-w-sm">
     <UiCardHeader>
       <UiCardTitle class="text-2xl">
-        Login
+        登录
       </UiCardTitle>
       <UiCardDescription>
-        Enter your email and password below to log into your account.
-        Not have an account?
+        请输入您的邮箱和密码以登录您的账户
+        还没有账号？
         <UiButton
           variant="link" class="px-0 text-muted-foreground"
           @click="$router.push('/auth/sign-up')"
         >
-          Sign Up
+          注册
         </UiButton>
       </UiCardDescription>
     </UiCardHeader>
     <UiCardContent class="grid gap-4">
       <div class="grid gap-2">
         <UiLabel for="email">
-          Email
+          邮箱
         </UiLabel>
-        <UiInput id="email" type="email" placeholder="m@example.com" required />
+        <UiInput id="email" v-model="email" type="email" placeholder="m@example.com" required />
       </div>
       <div class="grid gap-2">
         <div class="flex items-center justify-between">
           <UiLabel for="password">
-            Password
+            密码
           </UiLabel>
           <ToForgotPasswordLink />
         </div>
-        <UiInput id="password" type="password" required placeholder="*********" />
+        <UiInput id="password" v-model="password" type="password" required placeholder="*********" />
       </div>
 
-      <UiButton class="w-full" @click="login">
+      <UiButton class="w-full" @click="login(email, password)">
         <UiSpinner v-if="loading" class="mr-2" />
-        Mock Login
+        登录
       </UiButton>
 
-      <UiSeparator label="Or continue with" />
-
-      <div class="flex flex-col items-center justify-between gap-4">
-        <GitHubButton />
-        <GoogleButton />
-      </div>
-
       <UiCardDescription>
-        By clicking login, you agree to our
+        点击登录即表示您同意我们的
         <TermsOfServiceButton />
-        and
+        和
         <PrivacyPolicyButton />
       </UiCardDescription>
     </UiCardContent>
