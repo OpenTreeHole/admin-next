@@ -80,9 +80,8 @@ export default defineConfig(({ mode }) => {
         },
         // Proxy requests starting with /api/treehole to the treehole service
         '/api/treehole': {
-          target: 'https://www.fduhole.com',
+          target: 'https://forum.fduhole.com',
           changeOrigin: true,
-          // Remove /api/treehole prefix when forwarding the request
           rewrite: path => path.replace(/^\/api\/treehole/, '/api'),
         },
       },
