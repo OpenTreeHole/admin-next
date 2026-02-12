@@ -52,26 +52,19 @@ function handleClear() {
 }
 
 function handleScreenshotTemplate() {
-  messageContent.value = `⚠️ WARNING: This is a system alert.
-
-Please be advised that...
-
-(Insert screenshot warning details here)`
+  messageContent.value = `检测到您外传茶楼截图，特此警告。如有下次，将依据社区公约封禁。`
 }
 </script>
 
 <template>
-  <BasicPage title="发送消息" description="向特定标签或全局发送消息" sticky>
+  <BasicPage title="发送站内信" description="向特定标签或全局发送消息" sticky>
     <div class="max-w-2xl space-y-6">
       <div class="space-y-2">
-        <Label>接收者 (标签ID，逗号分隔)</Label>
-        <Input v-model="recipientInput" placeholder="可选: 输入标签ID (例如 1, 2, 3)" />
-        <p class="text-sm text-muted-foreground">
-          留空则发送给所有人，或指定用逗号分隔的标签ID。
-          <span v-if="recipientIds.length > 0" class="text-green-600">
-            (将发送给 {{ recipientIds.length }} 个标签: {{ recipientIds.join(', ') }})
-          </span>
-        </p>
+        <Label>接收者</Label>
+        <Input v-model="recipientInput" placeholder="输入逗号分隔的ID" />
+        <span v-if="recipientIds.length > 0" class="text-green-600">
+          将发送给 {{ recipientIds.length }} 个标签: {{ recipientIds.join(', ') }}
+        </span>
       </div>
 
       <div class="space-y-2">
@@ -91,7 +84,7 @@ Please be advised that...
           清空
         </Button>
         <Button variant="secondary" @click="handleScreenshotTemplate">
-          截图模板
+          截图外传警告
         </Button>
       </div>
     </div>

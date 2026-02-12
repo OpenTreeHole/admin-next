@@ -15,7 +15,7 @@ export function useSendMessageMutation() {
   return useMutation<any, AxiosError, ISendMessageRequest>({
     mutationKey: ['useSendMessageMutation'],
     mutationFn: async (data: ISendMessageRequest) => {
-      const response = await axiosInstance.post('/message', data)
+      const response = await axiosInstance.post('/messages', data)
       return response.data
     },
   })
