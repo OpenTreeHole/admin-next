@@ -9,10 +9,10 @@ const router = useRouter()
 
 <template>
   <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-    <UiCard class="cursor-pointer transition-colors hover:bg-muted/50" @click="router.push('/treehole/message/')">
+    <UiCard class="cursor-pointer transition-colors hover:bg-muted/50" @click="router.push('/treehole/tag/')">
       <UiCardHeader class="flex flex-row items-center justify-between pb-2 space-y-0">
         <UiCardTitle class="text-sm font-medium">
-          树洞 (Treehole)
+          标签管理
         </UiCardTitle>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,46 +29,17 @@ const router = useRouter()
       </UiCardHeader>
       <UiCardContent>
         <div class="text-2xl font-bold">
-          去发帖
+          管理标签
         </div>
         <p class="text-xs text-muted-foreground">
-          匿名分享你的想法
+          查看和管理树洞标签
         </p>
       </UiCardContent>
     </UiCard>
-    <UiCard class="cursor-pointer transition-colors hover:bg-muted/50" @click="router.push('/decrypt/upload/')">
+    <UiCard class="cursor-pointer transition-colors hover:bg-muted/50" @click="router.push('/treehole/message/')">
       <UiCardHeader class="flex flex-row items-center justify-between pb-2 space-y-0">
         <UiCardTitle class="text-sm font-medium">
-          解密 (Decrypt)
-        </UiCardTitle>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          class="size-4 text-muted-foreground"
-        >
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-          <circle cx="9" cy="7" r="4" />
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-        </svg>
-      </UiCardHeader>
-      <UiCardContent>
-        <div class="text-2xl font-bold">
-          上传/解密
-        </div>
-        <p class="text-xs text-muted-foreground">
-          安全地解密您的数据
-        </p>
-      </UiCardContent>
-    </UiCard>
-    <UiCard>
-      <UiCardHeader class="flex flex-row items-center justify-between pb-2 space-y-0">
-        <UiCardTitle class="text-sm font-medium">
-          销售额
+          站内信
         </UiCardTitle>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -82,21 +53,22 @@ const router = useRouter()
         >
           <rect width="20" height="14" x="2" y="5" rx="2" />
           <path d="M2 10h20" />
+          <path d="m3 14 2.5-2 1.5 1.5 3-3 5.5 5.5" />
         </svg>
       </UiCardHeader>
       <UiCardContent>
         <div class="text-2xl font-bold">
-          +12,234
+          发送消息
         </div>
         <p class="text-xs text-muted-foreground">
-          较上月增长 19%
+          向用户发送站内信
         </p>
       </UiCardContent>
     </UiCard>
-    <UiCard>
+    <UiCard class="cursor-pointer transition-colors hover:bg-muted/50" @click="router.push('/decrypt/upload/')">
       <UiCardHeader class="flex flex-row items-center justify-between pb-2 space-y-0">
         <UiCardTitle class="text-sm font-medium">
-          当前活跃
+          解密
         </UiCardTitle>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -108,27 +80,57 @@ const router = useRouter()
           strokeWidth="2"
           class="size-4 text-muted-foreground"
         >
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+          <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
         </svg>
       </UiCardHeader>
       <UiCardContent>
         <div class="text-2xl font-bold">
-          +573
+          上传/解密
         </div>
         <p class="text-xs text-muted-foreground">
-          过去一小时新增 201
+          安全地解密您的数据
+        </p>
+      </UiCardContent>
+    </UiCard>
+    <UiCard class="cursor-pointer transition-colors hover:bg-muted/50" @click="router.push('/decrypt/history/')">
+      <UiCardHeader class="flex flex-row items-center justify-between pb-2 space-y-0">
+        <UiCardTitle class="text-sm font-medium">
+          历史记录
+        </UiCardTitle>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          class="size-4 text-muted-foreground"
+        >
+          <path d="M3 3v5h5" />
+          <path d="M3.05 13A9 9 0 1 0 6 5.3L3 8" />
+          <path d="M12 7v5l4 2" />
+        </svg>
+      </UiCardHeader>
+      <UiCardContent>
+        <div class="text-2xl font-bold">
+          查看历史
+        </div>
+        <p class="text-xs text-muted-foreground">
+          解密历史记录
         </p>
       </UiCardContent>
     </UiCard>
   </div>
 
-  <div class="grid grid-cols-1 gap-4 lg:grid-cols-7">
+  <div class="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-7">
     <OverviewChart class="col-span-1 lg:col-span-4" />
     <UiCard class="col-span-1 lg:col-span-3">
       <UiCardHeader>
-        <UiCardTitle>最近销售</UiCardTitle>
+        <UiCardTitle>热门标签排行</UiCardTitle>
         <UiCardDescription>
-          本月您完成了 265 笔交易。
+          最近使用频率最高的标签。
         </UiCardDescription>
       </UiCardHeader>
       <UiCardContent>
