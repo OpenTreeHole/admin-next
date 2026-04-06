@@ -1,4 +1,4 @@
-import { Activity, History, LayoutDashboard, MessageSquare, Tags, Upload } from 'lucide-vue-next'
+import { LayoutDashboard, MessageSquare, Tags } from 'lucide-vue-next'
 
 import type { NavGroup } from '@/components/app-sidebar/types'
 
@@ -17,7 +17,7 @@ export function useSidebar() {
         { title: '站内信', url: '/treehole/message', icon: MessageSquare },
       ],
     },
-      ])
+  ])
 
   return {
     navData,
