@@ -170,7 +170,7 @@ const filterRange = computed(() => {
       <div class="grid flex-1 gap-1">
         <CardTitle>站内信发送统计</CardTitle>
         <CardDescription>
-          显示过去 3 个月的站内信发送数量
+          显示过去 3 个月的站内信发送数量（虚拟数据）
         </CardDescription>
       </div>
       <Select v-model="timeRange">
