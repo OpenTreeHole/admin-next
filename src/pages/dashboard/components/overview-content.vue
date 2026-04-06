@@ -71,9 +71,9 @@ const router = useRouter()
     <OverviewChart class="col-span-1 lg:col-span-4" />
     <UiCard class="col-span-1 lg:col-span-3">
       <UiCardHeader>
-        <UiCardTitle>热门标签排行</UiCardTitle>
+        <UiCardTitle>近一周热度涨幅排行</UiCardTitle>
         <UiCardDescription>
-          最近使用频率最高的标签。
+          近 7 天热度增长最快的前 5 个标签。
         </UiCardDescription>
       </UiCardHeader>
       <UiCardContent class="flex flex-col justify-center items-center text-center pt-0">
